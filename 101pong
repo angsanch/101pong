@@ -9,5 +9,20 @@
 import sys
 import vectors
 
+def main():
+    old = vectors.Vector(sys.argv[1], sys.argv[2], sys.argv[3])
+    current = vectors.Vector(sys.argv[4], sys.argv[5], sys.argv[6])
+    velocity = old - current
+    future = velocity * int(sys.argv[7]) + current
+    print("The velocity vector of the ball is:")
+    print(str(velocity))
+    print(f"At time t + {int(sys.argv[7])}, ball coordinates will be:")
+    print(str(future))
+    if (current.z * velocity.z < 0):
+        pass
+    else:
+        print("The ball won't reach the paddle.")
+    
 if __name__ == "__main__":
-    pass
+    main()
+    
