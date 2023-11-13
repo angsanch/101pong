@@ -1,0 +1,13 @@
+#!/usr/bin/python3
+##
+## EPITECH PROJECT, 2023
+## pong.py
+## File description:
+## pong maths
+##
+
+import sys
+import vectors
+
+if __name__ == "__main__":
+    pass
