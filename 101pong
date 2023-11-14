@@ -10,6 +10,18 @@ import sys
 import vectors
 import math
 
+def print_help():
+    print("""USAGE
+    ./101pong x0 y0 z0 x1 y1 z1 n
+
+DESCRIPTION
+    x0 ball abscissa at time t - 1
+    y0 ball ordinate at time t - 1
+    z0 ball altitude at time t - 1
+    x1 ball abscissa at time t
+    y1 ball ordinate at time t
+    z1 ball altitude at time t
+    n time shift (greater than or equal to zero, integer)""")
 def angle_with_plane_z(vector):
     sqrt = math.sqrt(vector.x**2 + vector.y**2)
     angle_radians = math.atan(vector.z / sqrt)
@@ -36,4 +48,13 @@ def main():
         print("The ball won't reach the paddle.")
     
 if __name__ == "__main__":
-    main()
+    if not (len(sys.argv) == 2 or len(sys.argv) == 8):
+        print("Invalid amount of arguments.", file=sys.stderr)
+        exit()
+    if len(sys.argv) == 8:
+        main()
+        exit()
+    if sys.argv[1] == "-h":
+        print_help()
+    else:
+        print("Invalid argument.", file=sys.stderr)
