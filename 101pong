@@ -52,10 +52,11 @@ if __name__ == "__main__":
     if not (len(sys.argv) == 2 or len(sys.argv) == 8):
         print("Invalid amount of arguments.", file=sys.stderr)
         exit()
-    if len(sys.argv) == 8:
+    if len(sys.argv) == 8 and float(sys.argv[7]) >= 0:
         main()
         exit()
-    if sys.argv[1] == "-h":
+    if sys.argv[1] == "-h" and len(sys.argv) == 2:
         print_help()
     else:
         print("Invalid argument.", file=sys.stderr)
+    
