@@ -46,7 +46,7 @@ def main():
         print(f"{res:.2f} degrees")
     else:
         print("The ball won't reach the paddle.")
-    
+
 if __name__ == "__main__":
     if not (len(sys.argv) == 2 or len(sys.argv) == 8):
         print("Invalid amount of arguments.", file=sys.stderr)

@@ -16,17 +16,20 @@ class Vector:
 
     def __add__(self, other):
         if not isinstance(other, Vector):
-            raise NotImplementedError("Vectors can only be added from other vectors.")
+            raise NotImplementedError("Vectors can only be added from"
+            "other vectors.")
         return (Vector(other.x + self.x, other.y + self.y, other.z + self.z))
-    
+
     def __sub__(self, other):
         if not isinstance(other, Vector):
-            raise NotImplementedError("Vectors can only be substracted from other vectors.")
+            raise NotImplementedError("Vectors can only be substracted from"
+            "other vectors.")
         return (Vector(other.x - self.x, other.y - self.y, other.z - self.z))
 
     def __mul__(self, other):
         if not (isinstance(other, int) or isinstance(other, float)):
-            raise NotImplementedError("Vectors can only be multiplied by numbers.")
+            raise NotImplementedError("Vectors can only be multiplied"
+            "by numbers.")
         return (Vector(self.x * other, self.y * other, self.z * other))
 
     def __str__(self):
