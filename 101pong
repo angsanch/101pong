@@ -22,6 +22,7 @@ DESCRIPTION
     y1 ball ordinate at time t
     z1 ball altitude at time t
     n time shift (greater than or equal to zero, integer)""")
+
 def angle_with_plane_z(vector):
     sqrt = math.sqrt(vector.x**2 + vector.y**2)
     angle_radians = math.atan(vector.z / sqrt)
