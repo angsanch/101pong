@@ -31,4 +31,3 @@ class Vector:
 
     def __str__(self):
         return (f"({self.x:.2f}, {self.y:.2f}, {self.z:.2f})")
-            

@@ -8,6 +8,13 @@
 
 import sys
 import vectors
+import math
+
+def angle_with_plane_z(vector):
+    sqrt = math.sqrt(vector.x**2 + vector.y**2)
+    angle_radians = math.atan(vector.z / sqrt)
+    dgr = math.degrees(angle_radians)
+    return (dgr)
 
 def main():
     old = vectors.Vector(sys.argv[1], sys.argv[2], sys.argv[3])
@@ -19,7 +26,9 @@ def main():
     print(f"At time t + {int(sys.argv[7])}, ball coordinates will be:")
     print(str(future))
     if (current.z * velocity.z < 0):
-        pass
+        res = abs(angle_with_plane_z(velocity))
+        print("The incidence angle is:")
+        print(f"{res:.2f} degrees")
     else:
         print("The ball won't reach the paddle.")
     
