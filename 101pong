@@ -36,22 +36,26 @@ def print_basics(velocity, future):
     print(str(future))
 
 def main():
-    old = vectors.Vector(sys.argv[1], sys.argv[2], sys.argv[3])
-    current = vectors.Vector(sys.argv[4], sys.argv[5], sys.argv[6])
-    velocity = old - current
-    future = velocity * int(sys.argv[7]) + current
-    print_basics(velocity, future)
-    if (current.z * velocity.z < 0):
-        res = abs(angle_with_plane_z(velocity))
-        print("The incidence angle is:")
-        print(f"{res:.2f} degrees")
-    else:
-        print("The ball won't reach the paddle.")
+    try:
+        old = vectors.Vector(sys.argv[1], sys.argv[2], sys.argv[3])
+        current = vectors.Vector(sys.argv[4], sys.argv[5], sys.argv[6])
+        velocity = old - current
+        future = velocity * int(sys.argv[7]) + current
+        print_basics(velocity, future)
+        if (current.z * velocity.z < 0):
+            res = abs(angle_with_plane_z(velocity))
+            print("The incidence angle is:")
+            print(f"{res:.2f} degrees")
+        else:
+            print("The ball won't reach the paddle.")
+    except ValueError:
+        print("Argument is not a valid float", file=sys.stderr)
+        exit(84)
 
 if __name__ == "__main__":
     if not (len(sys.argv) == 2 or len(sys.argv) == 8):
         print("Invalid amount of arguments.", file=sys.stderr)
-        exit()
+        exit(84)
     if len(sys.argv) == 8 and float(sys.argv[7]) >= 0:
         main()
         exit()
@@ -59,4 +63,4 @@ if __name__ == "__main__":
         print_help()
     else:
         print("Invalid argument.", file=sys.stderr)
-    
+        exit(84)
