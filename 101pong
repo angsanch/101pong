@@ -25,6 +25,8 @@ DESCRIPTION
 
 def angle_with_plane_z(vector):
     sqrt = math.sqrt(vector.x**2 + vector.y**2)
+    if sqrt == 0:
+        return 90
     angle_radians = math.atan(vector.z / sqrt)
     dgr = math.degrees(angle_radians)
     return (dgr)
